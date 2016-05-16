@@ -22,3 +22,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'company' => $faker->company,
     ];
 });
+
+$factory->define(App\Event::class, function (Faker\Generator $faker) {
+
+    $startsAt = \Carbon\Carbon::create(2016, rand(1,12), rand(1, 28), rand(9, 16), 0, 0);
+
+    return [
+        'name' => $faker->word . ' event',
+        'city' => $faker->city,
+        'starts_at' => $startsAt,
+        'finishes_at' => $startsAt->addHour()
+    ];
+});
+
+$factory->define(App\Rsvp::class, function (Faker\Generator $faker) {
+
+    return [
+        'user_id' => factory(App\User::class)->create()->id,
+        'event_id' => factory(App\Event::class)->create()->id,
+        'responded_at' => $faker->time('Y-m-d H:i:s'),
+        'response' => array_rand(['I will be attending', 'I cannot attend', 1]),
+    ];
+});
