@@ -1,3 +1,5 @@
 <?php
 
-Route::post('/search', 'SearchController@filter');
+Route::group(['middleware' => 'api'], function () {
+    Route::post('/search', 'SearchController@filter');
+});
