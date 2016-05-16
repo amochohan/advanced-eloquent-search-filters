@@ -16,6 +16,6 @@ class Name implements Filter
      */
     public static function apply(Builder $builder, $value)
     {
-        return $builder->where('name', $value);
+        return $builder->where('name', 'LIKE', '%' . $value . '%');
     }
 }
