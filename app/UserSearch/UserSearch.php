@@ -31,10 +31,7 @@ class UserSearch
 
     private static function createFilterDecorator($name)
     {
-        return sprintf('%\\Filters\\%s',
-            __NAMESPACE__,
-            str_replace(' ', '', ucwords(str_replace('_', ' ', $name)))
-        );
+        return __NAMESPACE__ . '\\Filters\\' . str_replace(' ', '', ucwords(str_replace('_', ' ', $name)));
     }
 
     private static function isValidDecorator($decorator)
