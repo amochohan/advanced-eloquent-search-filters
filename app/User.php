@@ -23,4 +23,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function rsvps()
+    {
+        return $this->hasMany(Rsvp::class, 'user_id', 'id');
+    }
 }
