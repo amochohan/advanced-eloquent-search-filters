@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class UserSearch
 {
-    public static function apply(Request $request)
+    public static function apply(Request $filters)
     {
-        
+
     }
 }
