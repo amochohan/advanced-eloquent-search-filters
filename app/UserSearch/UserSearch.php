@@ -31,7 +31,7 @@ class UserSearch
 
     private static function createFilterDecorator($name)
     {
-        return __NAMESPACE__ . '\\Filters\\' . str_replace(' ', '', ucwords(str_replace('_', ' ', $name)));
+        return __NAMESPACE__ . '\\Filters\\' . studly_case($name);
     }
 
     private static function isValidDecorator($decorator)
