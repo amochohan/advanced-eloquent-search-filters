@@ -5,6 +5,7 @@ namespace App\UserSearch;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 class UserSearch
 {
@@ -31,7 +32,7 @@ class UserSearch
 
     private static function createFilterDecorator($name)
     {
-        return __NAMESPACE__ . '\\Filters\\' . studly_case($name);
+        return __NAMESPACE__ . '\\Filters\\' . Str::studly($name);
     }
 
     private static function isValidDecorator($decorator)
